@@ -1,8 +1,7 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+  min-height: 100%; /* Esto hará que el contenedor raíz tenga al menos el alto de la pantalla */
+  width: 100%;
 }
 
 .logo {
@@ -25,6 +24,7 @@
   to {
     transform: rotate(360deg);
   }
+  
 }
 
 @media (prefers-reduced-motion: no-preference) {
