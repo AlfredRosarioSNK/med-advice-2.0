@@ -1,0 +1,153 @@
+.search-bar form {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.search-bar input {
+  width: 50%;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  color: rgba(0,0,0,0.5); 
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #003d82;
+}
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; /* Un color de fondo que combina con la barra de navegación */
+  margin: 0;
+  padding: 0;
+}
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff; /* O el color que prefieras */
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.nav-items a {
+  color: #000;
+  text-decoration: none;
+  margin-right: 20px;
+  /* Agrega aquí más estilos si necesitas */
+}
+.nav-bar a {
+  color: #96a6a5e8;
+  text-decoration: none;
+  padding: 0 15px;
+}
+.nav-bar a:hover {
+  text-decoration: underline;
+}
+.language-switcher {
+  display: flex;
+  align-items: center;
+  /* Agrega aquí más estilos si necesitas */
+}
+.language-btn {
+  background: none;
+  border: none;
+  color: #000;
+  margin: 0 5px;
+  cursor: pointer;
+  /* Agrega aquí más estilos si necesitas */
+}  
+.search-container {
+  background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); /* Ajusta estos colores para que coincidan con tu diseño */
+  padding: 10% 0; /* Ajusta el espaciado como necesites */
+  text-align: center; /* Asegúrate de que todo esté centrado */
+}
+.search-bar {
+  max-width: 600px; /* o el ancho que prefieras */
+  margin: 0 auto; /* Esto centra el div */
+  position: relative; /* Para posicionar el botón de búsqueda correctamente */
+}
+
+.search-bar input {
+  width: 100%; /* Aprovechar todo el ancho del .search-bar */
+  padding: 10px 20px;
+  font-size: 16px; /* Tamaño de fuente grande para fácil lectura */
+  border: 4px solid #ffffff; /* Borde blanco o lo que prefieras */
+  border-radius: 50px; /* Bordes redondeados */
+  outline: none; /* Quitar el resalte al enfocar */
+}
+
+
+.search-bar button {
+  position: absolute; /* Posicionar sobre el input */
+  right: 0; /* A la derecha */
+  border-top-right-radius: 50px; /* Redondear solo las esquinas derechas */
+  border-bottom-right-radius: 50px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #ffffff; /* Botón blanco para contraste */
+  color: #0093E9; /* Color que contraste con el botón blanco, ajusta según necesites */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #cdf4f3e8; /* Un púrpura más oscuro para el efecto hover */
+}    
+.search-icon:before {
+  content: '🔍'; /* Cambia esto por tu ícono */
+  font-size: 24px;
+}
+.search-bar button::after {
+  content: '🔍'; /* Sustituye por un ícono si prefieres */
+  font-size: 20px;
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+.search-bar input,
+.search-bar button {
+transition: all 0.3s ease; /* Suaviza la transición de estados */
+}
+.search-bar input:focus,
+.search-bar button:hover {
+box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Sombra más pronunciada en hover/focus */
+}
+
+@media (max-width: 768px) {
+  .nav-items a, .language-switcher {
+  .search-bar {
+    width: 90%; /* Más estrecho en pantallas pequeñas */
+  }
+
+  .search-bar input,
+  .search-bar button {
+    padding: 8px 16px; /* Ajuste de padding para pantallas pequeñas */
+  }
+}
+}
