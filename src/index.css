@@ -1,68 +1,66 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+body, html{
+  height: 100%;
+  padding: 0;
   margin: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+    "nav head head"
+    "nav text img";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 155px 1fr 1fr;
+}
+
+.menu {
+  grid-area: nav;
+  background-color: black;
+  text-decoration: none;
+}
+
+.buscador {
+  grid-area: head;
+  background-color: aqua;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-between; 
+  align-items: center; 
+  padding-left: 45%;
+  padding-right: 5%;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.buscar{
+  width: 50%;
+  height: 40%;
+  border-radius: 20px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.cuenta{
+  width: 10%;
+  padding-left: 10px;
+
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.cuenta a{
+  padding-left: 10px;
 }
+
+.info {
+  grid-area: text;
+  background-color: rgb(0, 255, 174);
+  padding: 10px
+}
+
+.adn {
+  grid-area: img;
+}
+
+.adn video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-area: img;
+}
+
