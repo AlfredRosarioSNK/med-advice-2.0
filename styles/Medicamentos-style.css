@@ -1,0 +1,193 @@
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  background-image: url('../src/images/health-kid.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 400px;
+}
+
+.search-bar {
+  width: 40%;
+  position: relative;
+  z-index: 2;
+}
+
+.search-bar .input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-bar input {
+  width: calc(100% - 3rem);
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #007bff;
+  border-radius: 20px 0 0 20px;
+  box-shadow: none;
+  background: #ffffff;
+  position: relative; 
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #17a2b8;
+}
+
+.search-bar input::placeholder {
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.search-bar span {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 13px; /* Asegúrate de que esté justo debajo del texto */
+  left: 0;
+  right: 0;
+  margin-left: 18px;
+  margin-right: 100px;
+  height: 1px; /* Altura de la barra de animación */
+  background-color: #cacaca;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-out;
+}
+
+.search-bar input:focus ~ span {
+  transform: scaleX(1);
+  transition: transform 0.5s ease-in;
+}
+
+.search-bar button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.search-bar button::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  background-color: #007bff;
+  transition: transform 0.75s ease-in-out, opacity 0.75s ease-in-out;
+  transform: scale(1);
+  transform-origin: center;
+  opacity: 1;
+  z-index: -1;
+}
+
+.search-bar button:hover::before {
+  transform: scale(1.75);
+  opacity: 0;
+}
+
+.search-bar button:hover {
+  background-color: #003d82;
+}
+
+.search-results {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  z-index: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.search-results.show {
+  display: block;
+}
+
+.search-result-item {
+  border-bottom: 1px solid #eaeaea;
+  padding: 1rem;
+}
+
+.search-result-item p {
+  margin: 0.5rem 0;
+}
+
+.search-result-item:first-child {
+  margin-top: 0;
+}
+
+.search-result-item:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    width: 80%;
+  }
+
+  .search-results {
+    width: 80%;
+  }
+}
