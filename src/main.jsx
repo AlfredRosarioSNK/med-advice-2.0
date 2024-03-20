@@ -7,6 +7,9 @@ import Root from "../src/routes/inicio"
 import Doctores from "../pages/Doctores";
 import Consultas from "../pages/Consultas";
 import Portal from "../pages/Portal";
+import Contactanos from "../pages/Contactanos";
+import Calendario from "../pages/Calendario";
+
 
 import Medicamentos from "../pages/medicamentos";
 
@@ -36,8 +39,16 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/Medicamentos",
-    element: <Medicamentos />,
+    path: "/Contactanos",
+    element: <Contactanos />,
+  },
+  {
+    path: "/inicio",
+    element: <Root />,
+  },
+  {
+    path: "/Calendario",
+    element: <Calendario />,
   }
 ]);
 
