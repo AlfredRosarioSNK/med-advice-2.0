@@ -71,36 +71,41 @@ const Medicamentos: React.FC = () => {
     <div>
       <Header />
       <div className="search-container">
-        <div className="search-bar">
-          <form onSubmit={handleSubmit}>
+      <div className="search-bar">
+        <form onSubmit={handleSubmit}>
+          <div className="input-container">
             <input
               type="text"
               value={terminoAbuscar}
               onChange={handleChange}
-              placeholder="Type anything"
+              placeholder="Buscar medicamento..."
             />
-            <button type="submit"></button>
-          </form>
-        </div>
-        {Array.isArray(results) && results.length > 0 ? (
-          <div className="search-results">
-            {results.map((result, index) => (
-              <div key={index}>
-                <p>NDC: {result.openfda?.product_ndc?.join(', ') || 'N/A'}</p>
-                <p>Name: {result.openfda?.brand_name?.join(', ') || 'N/A'}</p>
-                <p>Manufacturer: {result.openfda?.manufacturer_name?.join(', ') || 'N/A'}</p>
-                <p>Substance: {result.openfda?.substance_name?.join(', ') || 'N/A'}</p>
-              </div>
-            ))}
+            <span className="focus-border"></span>
           </div>
-        ) : (
-          <div className="search-results">
-            <p>No results found or there was an error.</p>
-          </div>
-        )}
+          <button type="submit">Buscar</button>
+        </form>
+      </div>
 
+        <div className={`search-results ${results.length > 0 ? 'show' : ''}`}>
+          {Array.isArray(results) && results.length > 0 ? (
+            results.map((result, index) => (
+              <div key={index} className="search-result-item">
+                <h3>{result.openfda?.brand_name?.join(', ') || 'Nombre no disponible'}</h3>
+                <p><strong>NDC:</strong> {result.openfda?.product_ndc?.join(', ') || 'N/A'}</p>
+                <p><strong>Fabricante:</strong> {result.openfda?.manufacturer_name?.join(', ') || 'N/A'}</p>
+                <p><strong>Sustancia Activa:</strong> {result.openfda?.substance_name?.join(', ') || 'N/A'}</p>
+                {/* Añade aquí más información del medicamento si es necesario */}
+              </div>
+            ))
+          ) : (
+            <div>
+              <p>No se encontraron resultados o hubo un error.</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
 };
+
 export default Medicamentos;

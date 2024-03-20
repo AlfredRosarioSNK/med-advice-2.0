@@ -1,153 +1,193 @@
-.search-bar form {
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.search-container {
+  position: relative;
   display: flex;
   justify-content: center;
-  margin: 0;
+  align-items: center;
+  padding: 2rem 0;
+  background-image: url('../src/images/health-kid.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 400px;
+}
+
+.search-bar {
+  width: 40%;
+  position: relative;
+  z-index: 2;
+}
+
+.search-bar .input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .search-bar input {
-  width: 50%;
-  padding: 10px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  color: rgba(0,0,0,0.5); 
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: calc(100% - 3rem);
+  padding: 1rem;
+  font-size: 1rem;
+  border: 2px solid #007bff;
+  border-radius: 20px 0 0 20px;
+  box-shadow: none;
+  background: #ffffff;
+  position: relative; 
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #17a2b8;
+}
+
+.search-bar input::placeholder {
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.search-bar span {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 13px; /* Asegúrate de que esté justo debajo del texto */
+  left: 0;
+  right: 0;
+  margin-left: 18px;
+  margin-right: 100px;
+  height: 1px; /* Altura de la barra de animación */
+  background-color: #cacaca;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-out;
+}
+
+.search-bar input:focus ~ span {
+  transform: scaleX(1);
+  transition: transform 0.5s ease-in;
 }
 
 .search-bar button {
-  padding: 10px 20px;
-  background-color: #0056b3;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 1rem;
+  background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 0 20px 20px 0;
   cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.search-bar button::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  bottom: -4px;
+  left: -4px;
+  background-color: #007bff;
+  transition: transform 0.75s ease-in-out, opacity 0.75s ease-in-out;
+  transform: scale(1);
+  transform-origin: center;
+  opacity: 1;
+  z-index: -1;
+}
+
+.search-bar button:hover::before {
+  transform: scale(1.75);
+  opacity: 0;
 }
 
 .search-bar button:hover {
   background-color: #003d82;
 }
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f4; /* Un color de fondo que combina con la barra de navegación */
-  margin: 0;
-  padding: 0;
-}
-.nav-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff; /* O el color que prefieras */
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-.nav-items a {
-  color: #000;
-  text-decoration: none;
-  margin-right: 20px;
-  /* Agrega aquí más estilos si necesitas */
-}
-.nav-bar a {
-  color: #96a6a5e8;
-  text-decoration: none;
-  padding: 0 15px;
-}
-.nav-bar a:hover {
-  text-decoration: underline;
-}
-.language-switcher {
-  display: flex;
-  align-items: center;
-  /* Agrega aquí más estilos si necesitas */
-}
-.language-btn {
-  background: none;
-  border: none;
-  color: #000;
-  margin: 0 5px;
-  cursor: pointer;
-  /* Agrega aquí más estilos si necesitas */
-}  
-.search-container {
-  background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); /* Ajusta estos colores para que coincidan con tu diseño */
-  padding: 10% 0; /* Ajusta el espaciado como necesites */
-  text-align: center; /* Asegúrate de que todo esté centrado */
-}
-.search-bar {
-  max-width: 600px; /* o el ancho que prefieras */
-  margin: 0 auto; /* Esto centra el div */
-  position: relative; /* Para posicionar el botón de búsqueda correctamente */
-}
 
-.search-bar input {
-  width: 100%; /* Aprovechar todo el ancho del .search-bar */
-  padding: 10px 20px;
-  font-size: 16px; /* Tamaño de fuente grande para fácil lectura */
-  border: 4px solid #ffffff; /* Borde blanco o lo que prefieras */
-  border-radius: 50px; /* Bordes redondeados */
-  outline: none; /* Quitar el resalte al enfocar */
-}
-
-
-.search-bar button {
-  position: absolute; /* Posicionar sobre el input */
-  right: 0; /* A la derecha */
-  border-top-right-radius: 50px; /* Redondear solo las esquinas derechas */
-  border-bottom-right-radius: 50px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #ffffff; /* Botón blanco para contraste */
-  color: #0093E9; /* Color que contraste con el botón blanco, ajusta según necesites */
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.search-bar button:hover {
-  background-color: #cdf4f3e8; /* Un púrpura más oscuro para el efecto hover */
-}    
-.search-icon:before {
-  content: '🔍'; /* Cambia esto por tu ícono */
-  font-size: 24px;
-}
-.search-bar button::after {
-  content: '🔍'; /* Sustituye por un ícono si prefieres */
-  font-size: 20px;
-}
-
-.search-icon {
-  width: 24px;
-  height: 24px;
+.search-results {
+  display: none;
   position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  z-index: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 0.5rem;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
--webkit-appearance: none;
-margin: 0;
+.search-results.show {
+  display: block;
 }
-input[type='number'] {
-  -moz-appearance: textfield;
+
+.search-result-item {
+  border-bottom: 1px solid #eaeaea;
+  padding: 1rem;
 }
-.search-bar input,
-.search-bar button {
-transition: all 0.3s ease; /* Suaviza la transición de estados */
+
+.search-result-item p {
+  margin: 0.5rem 0;
 }
-.search-bar input:focus,
-.search-bar button:hover {
-box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Sombra más pronunciada en hover/focus */
+
+.search-result-item:first-child {
+  margin-top: 0;
+}
+
+.search-result-item:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
 }
 
 @media (max-width: 768px) {
-  .nav-items a, .language-switcher {
   .search-bar {
-    width: 90%; /* Más estrecho en pantallas pequeñas */
+    width: 80%;
   }
 
-  .search-bar input,
-  .search-bar button {
-    padding: 8px 16px; /* Ajuste de padding para pantallas pequeñas */
+  .search-results {
+    width: 80%;
   }
-}
 }
