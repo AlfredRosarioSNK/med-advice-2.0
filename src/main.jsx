@@ -4,6 +4,9 @@ import * as ReactDOM from "react-dom/client";
 import { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
+import Contactanos from "../pages/Contactanos";
+import Calendario from "../pages/Calendario";
+
 
 // Importando componentes y configuración de Firebase
 import appFirebase from "./Credentials"; // Asegúrate de que la ruta sea correcta
@@ -66,6 +69,18 @@ function App() {
       path: "/LoginHome",
       element: <LoginHome userMail={user ? user.email : ''} />,
     },
+    {
+      path: "/Contactanos",
+      element: <Contactanos />,
+    },
+    {
+      path: "/inicio",
+      element: <Root />,
+    },
+    {
+      path: "/Calendario",
+      element: <Calendario />,
+    }
   ].filter(Boolean)); // Filtra las rutas no definidas para usuarios no autenticados
 
   return (

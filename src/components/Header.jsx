@@ -19,17 +19,15 @@ const Header = () => {
                     </div>
                 </div>
 
-                {/* Navegación principal */}
                 <div className="main-nav">
                     <div className="container d-flex justify-content-between align-items-center">
                         <div className="logo">
-                            {/* Inserta aquí tu logo */}
                             <Link to="/Portal"><img src={logo} alt="SaludConecta" /></Link>
                         </div>
                         <nav className="nav">
                             <Link to="/Portal" className="nav-link">SERVICIOS</Link>
                             <Link to="/Portal" className="nav-link">DOCTORES</Link>
-                            <Link to="/Portal" className="nav-link">CALENDARIO</Link>
+                            <Link to="/Calendario" className="nav-link">CALENDARIO</Link>
                             <div className="nav-item dropdown">
                                 <span className="nav-link">CONSULTAR</span>
                                 <div className="dropdown-menu">
@@ -38,7 +36,7 @@ const Header = () => {
                                 </div>
                             </div>
                             <Link to="/Portal" className="nav-link">BLOG</Link>
-                            <Link to="/Portal" className="nav-link">CONTACTANOS</Link>
+                            <Link to="/Contactanos" className="nav-link">CONTACTANOS</Link>
                         </nav>
                         <div className="header-contact">
                             <span className="Register-button">Register </span>
@@ -49,7 +47,6 @@ const Header = () => {
 
                 {/* Slider */}
                 <div className="slider-container">
-                    {/* Aquí iría tu componente de slider. */}
                     {/* <SliderComponent /> */}
                 </div>
             </header>

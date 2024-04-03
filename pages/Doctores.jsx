@@ -5,4 +5,4 @@ export default function Doctores(){
       <h1>Doctores</h1>
      </div>
   )
-}
+} 

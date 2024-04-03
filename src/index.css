@@ -1,5 +1,4 @@
 
-/* Estilos generales y variables */
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -36,7 +35,7 @@
 }
 
 .logo img {
-  max-width: 100px; /* Ajusta esto según el tamaño deseado para tu logo */
+  max-width: 100px; 
   height: auto;
 }
 .header {
@@ -50,10 +49,10 @@
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Esto evitará una barra de desplazamiento horizontal si el contenido es demasiado ancho */
+  overflow-x: hidden; 
 }
 .container {
-  max-width: 100%; /* Si estás utilizando un contenedor, esto permitirá que sea del ancho completo también */
+  max-width: 100%;
   padding-right: 0;
   padding-left: 0;
   margin-right: auto;
@@ -91,11 +90,11 @@ body {
 /* ANIMACION */
 .nav-link {
   position: relative;
-  color: #333; /* o cualquier color que prefieras */
+  color: #333; 
   padding-bottom: 0;
-  padding: 0.5rem 1rem; /* o el padding que prefieras */
+  padding: 0.5rem 1rem; 
   text-decoration: none; /* para quitar el subrayado por defecto */
-  transition: color 0.3s ease; /* opcional: para una transición suave de color */
+  transition: color 0.3s ease; 
 
 }
 .nav-link::before {
@@ -105,7 +104,7 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--primary); /* o cualquier color que prefieras para el subrayado */
+  background-color: var(--primary); 
   transform-origin: bottom right;
   transform: scaleX(0);
   transition: transform 0.5s ease;
@@ -117,7 +116,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #007bff; /* o cualquier color que prefieras al pasar el mouse */
+  color: #007bff;
 }
 
 .main-nav .nav a {
@@ -154,8 +153,8 @@ body {
   border: none;
   background-color: var(--primary);
   text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces */
-  display: inline-block; /* Para permitir la transformación y transición */
-  transition: color 0.25s ease-in-out; /* Para una transición suave de color */
+  display: inline-block; /* Permitir la transformación y transición */
+  transition: color 0.25s ease-in-out; 
 
 }
 
@@ -175,7 +174,7 @@ body {
 
 .login-button:hover {
   cursor: pointer;
-  color: var(--dark); /* Cambia el color del texto si lo deseas */
+  color: var(--dark); 
 }
 
 .login-button:hover::before {
@@ -222,7 +221,7 @@ body {
 .dropdown {
   position: relative;
   display: inline-block;
-  z-index: 1000; /* Asegúrate de que este valor sea más alto que el del slider */
+  z-index: 1000; /* Asegúren de que este valor sea más alto que el del slider */
 }
 
 .dropdown-menu {
@@ -233,14 +232,14 @@ body {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   top: 100%;
-  left: -15%; /* Si el menú necesita centrarse con respecto al texto */
+  left: -15%; 
   opacity: 0;
   transition: opacity 0.5s, visibility 0s linear 2.5s;
 }/* Mostrar el menú desplegable al pasar el mouse */
 .dropdown:hover .dropdown-menu {
   visibility: visible;
   opacity: 1;
-  transition-delay: 0s; /* No hay retardo al mostrar el menú */
+  transition-delay: 0s; 
   display: block; /*OJO CON ESTO*/
 }
 .dropdown-item {
