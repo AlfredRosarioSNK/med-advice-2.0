@@ -1,0 +1,10 @@
+.BannerImageContainer{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 20vh; 
+}
+
+.BannerImageContainer img{
+    border-radius: 50px;
+}

@@ -66,45 +66,48 @@ const Medicamentos: React.FC = () => {
       return []; // Retorna un arreglo vacío en caso de error
     }
   };
-
   return (
     <div>
       <Header />
       <div className="search-container">
-      <div className="search-bar">
-        <form onSubmit={handleSubmit}>
-          <div className="input-container">
-            <input
-              type="text"
-              value={terminoAbuscar}
-              onChange={handleChange}
-              placeholder="Buscar medicamento..."
-            />
-            <span className="focus-border"></span>
-          </div>
-          <button type="submit">Buscar</button>
+        <form className="form" onSubmit={handleSubmit}>
+          <svg className="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M9 2C4.589 2 1 5.589 1 10s3.589 8 8 8c1.846 0 3.543-.633 4.906-1.688l.094-.094 6.281 6.282 1.438-1.438-6.282-6.281.094-.094C16.367 13.543 17 11.846 17 10s-.633-4.543-1.688-5.906l-.094-.094L18.719 1.72l-1.438-1.44-2.593 2.593-.094.094C13.543 2.633 11.846 2 10 2zm0 2c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z" />
+          </svg>
+          <input
+            className="input"
+            type="text"
+            value={terminoAbuscar}
+            onChange={handleChange}
+            placeholder="Buscar medicamento..."
+          />
+          {terminoAbuscar && (
+            <button type="button" className="reset" onClick={() => setSearchTerm('')}>
+              &times;
+            </button>
+          )}
+          <button type="submit" className="search-btn">Buscar</button>  
         </form>
       </div>
 
-        <div className={`search-results ${results.length > 0 ? 'show' : ''}`}>
-          {Array.isArray(results) && results.length > 0 ? (
-            results.map((result, index) => (
-              <div key={index} className="search-result-item">
-                <h3>{result.openfda?.brand_name?.join(', ') || 'Nombre no disponible'}</h3>
-                <p><strong>NDC:</strong> {result.openfda?.product_ndc?.join(', ') || 'N/A'}</p>
-                <p><strong>Fabricante:</strong> {result.openfda?.manufacturer_name?.join(', ') || 'N/A'}</p>
-                <p><strong>Sustancia Activa:</strong> {result.openfda?.substance_name?.join(', ') || 'N/A'}</p>
-                {/* Añade aquí más información del medicamento si es necesario */}
-              </div>
-            ))
-          ) : (
-            <div>
-              <p>No se encontraron resultados o hubo un error.</p>
+      <div className={`search-results ${results.length > 0 ? 'show' : ''}`}>
+        {Array.isArray(results) && results.length > 0 ? (
+          results.map((result, index) => (
+            <div key={index} className="search-result-item">
+              <h3>{result.openfda?.brand_name?.join(', ') || 'Nombre no disponible'}</h3>
+              <p><strong>NDC:</strong> {result.openfda?.product_ndc?.join(', ') || 'N/A'}</p>
+              <p><strong>Fabricante:</strong> {result.openfda?.manufacturer_name?.join(', ') || 'N/A'}</p>
+              <p><strong>Sustancia Activa:</strong> {result.openfda?.substance_name?.join(', ') || 'N/A'}</p>
             </div>
-          )}
-        </div>
+          ))
+        ) : (
+          <div>
+            <p>No se encontraron resultados.</p>
+          </div>
+        )}
       </div>
     </div>
+
   );
 };
 

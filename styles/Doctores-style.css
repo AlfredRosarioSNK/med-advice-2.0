@@ -1,0 +1,57 @@
+.doctors-section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f8f9fa;
+  }
+  
+  .doctors-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px; 
+  }
+  
+  .doctor-card {
+    width: 300px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .doctor-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .doctor-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .doctor-title {
+    color: #007bff;
+    font-size: 18px;
+    margin-top: 5px;
+  }
+  
+  .doctor-bio {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .doctors-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .doctor-card {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+  }
+  

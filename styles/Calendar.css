@@ -1,0 +1,23 @@
+.calendar-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .calendar-container {
+    margin-top: 200px;
+    margin-bottom: 40px; 
+    max-width: 800px; 
+    --calendar-height: 400px; 
+    height: var(--calendar-height); 
+  }
+  
+  .calendar-title {
+    text-align: center; 
+  }
+  
+  .custom-calendar {
+    width: 100%; 
+    height: 100%; 
+  }
+  

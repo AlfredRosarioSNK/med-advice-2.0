@@ -9,11 +9,11 @@ const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length); // Incrementa o vuelve al principio
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
     };
 
     const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length); // Decrementa o va al final
+        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length); 
     };
 
     return (

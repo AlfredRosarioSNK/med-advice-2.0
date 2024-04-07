@@ -28,8 +28,8 @@ const Header = () => {
                         </div>
                         <nav className="nav">
                             <Link to="/Portal" className="nav-link">SERVICIOS</Link>
-                            <Link to="/Portal" className="nav-link">DOCTORES</Link>
-                            <Link to="/Portal" className="nav-link">CALENDARIO</Link>
+                            <Link to="/Doctores" className="nav-link">DOCTORES</Link>
+                            <Link to="/Calendario" className="nav-link">CALENDARIO</Link>
                             <div className="nav-item dropdown">
                                 <span className="nav-link">CONSULTAR</span>
                                 <div className="dropdown-menu">
@@ -38,7 +38,7 @@ const Header = () => {
                                 </div>
                             </div>
                             <Link to="/Portal" className="nav-link">BLOG</Link>
-                            <Link to="/Portal" className="nav-link">CONTACTANOS</Link>
+                            <Link to="/Contactanos" className="nav-link">CONTACTANOS</Link>
                         </nav>
                         <div className="header-contact">
                             <span className="Register-button">Register </span>
