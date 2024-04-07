@@ -17,6 +17,7 @@ import Portal from "../pages/Portal";
 import Medicamentos from "../pages/medicamentos";
 import Login from "./Login"; // Asegúrate de que la ruta sea correcta
 import LoginHome from "../pages/LoginHome"; // Asume que este es el componente para usuarios autenticados
+import News from '../pages/News'; 
 
 const auth = getAuth(appFirebase);
 
@@ -60,6 +61,11 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/News",
+      element: <News />,
+
     },
     // Esta ruta requiere autenticación para ser accesible
     {

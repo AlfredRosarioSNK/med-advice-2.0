@@ -1,19 +1,19 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Importar useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import appFirebase from '../src/Credentials';
 import { getAuth, signOut } from 'firebase/auth';
 
 const auth = getAuth(appFirebase);
 
 const LoginHome = ({ userMail }) => {
-  const navigate = useNavigate(); // Crear la instancia de navigate
+  const navigate = useNavigate(); 
 
   const handleLogout = async () => {
     try {
-      await signOut(auth); // Intenta cerrar la sesión
-      navigate('/login'); // Redirecciona al usuario a la página de login o inicio
+      await signOut(auth); 
+      navigate('/login'); 
     } catch (error) {
-      // Maneja posibles errores aquí
+     
       console.error("Error during sign out: ", error);
     }
   };

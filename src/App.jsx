@@ -5,6 +5,7 @@ import Root from "./routes/inicio";
 import Doctores from "../pages/Doctores";
 import Consultas from "../pages/Consultas";
 import Portal from ".../pages/Portal";  
+import News from "../pages/News";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/Consultas" element={<Consultas />} />
       <Route path="/Portal" element={<Portal />} />
       <Route path="/loginHome" element={<LoginHome />} />
+      <Route path="/News" element={<News />} />
     </Routes>
 
   );

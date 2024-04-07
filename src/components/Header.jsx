@@ -13,7 +13,7 @@ const Header = () => {
                         <div className="top-links">
                             <Link to="/Portal">Historia</Link>
                             <Link to="/Portal">Carreras</Link>
-                            <Link to="/Portal">Noticias</Link>
+                            <Link to="/News">Noticias</Link>
                             <Link to="/Portal">Politica de privacidad</Link>
                         </div>
                     </div>
