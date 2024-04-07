@@ -7,7 +7,6 @@ import "./index.css";
 import Contactanos from "../pages/Contactanos";
 import Calendario from "../pages/Calendario";
 
-
 // Importando componentes y configuración de Firebase
 import appFirebase from "./Credentials"; // Asegúrate de que la ruta sea correcta
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -19,7 +18,8 @@ import Consultas from "../pages/Consultas";
 import Portal from "../pages/Portal";
 import Medicamentos from "../pages/medicamentos";
 import Login from "./Login"; // Asegúrate de que la ruta sea correcta
-import LoginHome from "../pages/LoginHome"; // Asume que este es el componente para usuarios autenticados
+import LoginHome from "../pages/LoginHome";
+import News from '../pages/News'; 
 
 const auth = getAuth(appFirebase);
 
@@ -64,11 +64,6 @@ function App() {
       path: "/login",
       element: <Login />,
     },
-    // Esta ruta requiere autenticación para ser accesible
-    {
-      path: "/LoginHome",
-      element: <LoginHome userMail={user ? user.email : ''} />,
-    },
     {
       path: "/Contactanos",
       element: <Contactanos />,
@@ -77,10 +72,21 @@ function App() {
       path: "/inicio",
       element: <Root />,
     },
+    // Esta ruta requiere autenticación para ser accesible
+    {
+      path: "/News",
+      element: <News />,
+
+    },
     {
       path: "/Calendario",
       element: <Calendario />,
-    }
+    },
+    // Esta ruta requiere autenticación para ser accesible
+    {
+      path: "/LoginHome",
+      element: <LoginHome userMail={user ? user.email : ''} />,
+    },
   ].filter(Boolean)); // Filtra las rutas no definidas para usuarios no autenticados
 
   return (

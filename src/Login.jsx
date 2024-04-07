@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BackgroundLoginExampleImage from "../src/images/backgroundLoginExample.jpg";
 import profilePicExample from "../src/images/profilePicExample.png";
+import { useNavigate } from 'react-router-dom';
 import './Login.css'
 
 import appFirebase from "../src/Credentials";
@@ -12,6 +13,7 @@ import {
 const auth = getAuth(appFirebase);
 
 export const Login = () => {
+  const navigate = useNavigate();
   const [registerIn, setRegisterIn] = useState(false);
   const [error, setError] = useState("");
 
@@ -24,11 +26,11 @@ export const Login = () => {
       setError("The password should be at least 8 characters long");
       return; 
     }
-
     if (registerIn) {
       try {
         await createUserWithEmailAndPassword(auth, Oauthmail, Oauthpassword);
         setError(""); 
+        navigate('/loginHome'); // Añade esta línea
       } catch (error) {
         setError("Error during registration: " + error.message);
       }
@@ -36,6 +38,7 @@ export const Login = () => {
       try {
         await signInWithEmailAndPassword(auth, Oauthmail, Oauthpassword);
         setError(""); 
+        navigate('/loginHome'); // Añade esta línea
       } catch (error) {
         setError("The password or email is incorrect");
       }
