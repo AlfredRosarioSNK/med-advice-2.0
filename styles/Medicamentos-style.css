@@ -29,10 +29,14 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-body {
+/* Estilos básicos */
+body, input, button {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
+}
+
+body {
   background-color: #f4f4f4;
 }
 
@@ -41,6 +45,7 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* Estilos del contenedor de búsqueda y resultados */
 .search-container {
   position: relative;
   display: flex;
@@ -61,7 +66,7 @@ body {
   transform: translateX(-50%);
   width: 40%;
   background-color: #ffffff;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   z-index: 1;
   border-radius: 8px;
   overflow: hidden;
@@ -81,119 +86,67 @@ body {
   margin: 0.5rem 0;
 }
 
-/* Estilos de la forma y entrada de búsqueda */
+/* Nuevo diseño del formulario de búsqueda */
 .form {
-  --timing: 0.3s;
-  --width-of-input: 100%;
-  --height-of-input: 40px;
-  --border-height: 2px;
-  --input-bg: #fff;
-  --border-color: #2f2ee9;
-  --border-radius: 30px;
-  --after-border-radius: 0;
   position: relative;
+  width: 200px; /* Ancho del formulario */
+  height: 40px; /* Altura del formulario */
   display: flex;
   align-items: center;
-  padding-inline: 0.2em;
-  border-radius: var(--border-radius);
-  transition: border-radius 0.5s ease, box-shadow 0.3s ease;
-  background: var(--input-bg, #fff);
-  box-shadow: none;
-  
+  border-radius: 30px;
+  background: #fff;
+  padding: 0 0.8em; /* Espacio alrededor del contenido interno */
+  transition: border-radius 0.5s ease;
 }
 
 .input {
   font-size: 0.9rem;
-  background-color: transparent;
-  width: calc(100% - 34px);
+  width: 100%;
   height: 100%;
-  padding: 1.4em;
+  padding: 0.5em 0.7em; /* Ajustar el padding para alinear texto */
   border: none;
-  padding-left: 20.5em; /* Asegurarse de que hay suficiente espacio para el ícono de la lupa */
-  padding-right: 20.5em; 
-  border: none;
-  
+  background: transparent;
 }
-.search-btn {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  padding: 1rem;
-  background-color: #007bff;
-  color: white;
+
+.form button {
+  background: none;
+  color: #8b8ba7;
   border: none;
-  border-radius: 0 20px 20px 0;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
-  
-.search-btn:hover {
-  background-color: #0056b3; /* Color más oscuro para el hover */
+
+/* Ajustes para icono de búsqueda y reset */
+.search-icon {
+  fill: #8b8ba7;
 }
 
 .reset {
-  position: absolute;
-  right: 4em; /* Ajustar según el tamaño de tu botón de búsqueda */
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  border: none;
-  background: none;
-  visibility: hidden; /* Oculta el botón por defecto */
+  opacity: 0;
+  visibility: hidden;
 }
-.input:not(:placeholder-shown) + .reset {
+
+input:not(:placeholder-shown) ~ .reset {
+  opacity: 1;
   visibility: visible;
 }
-.form:before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: var(--border-height);
-  background-color: var(--border-color);
-  transform: scaleX(0);
-  transition: transform var(--timing) ease;
-  z-index: 0; /* Asegúrate de que esté debajo de los elementos */
-}
-.form:focus-within {
-  border-radius: var(--after-border-radius);
-}
-.form:focus-within:before {
-  transform: scaleX(1);
+
+/* Estilos para botón de buscar */
+.search-btn {
+  background-color: #007bff;
+  color: white;
+  border-radius: 0 20px 20px 0; /* Solo esquinas redondeadas a la derecha */
 }
 
-.form button,
-.form svg {
-  z-index: 1;
+.search-btn:hover {
+  background-color: #0056b3;
 }
 
-.search-icon {
-  position: absolute;
-  left: 0.75em; /* Ajusta para alinear el ícono de la lupa */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1em;
-  height: 1em;
-  fill: #8b8ba7; /* Color del ícono */
-}
-
-.form svg.search-icon {
-  position: absolute;
-  left: 12px; /* Ajustar según el padding de tu input */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1em; /* Ajusta según prefieras */
-  height: 1em;
-}
-
-  @media (max-width: 768px) {
-    .search-container {
+/* Media queries para diseños responsivos */
+@media (max-width: 768px) {
+  .search-container {
     padding: 1rem;
-    }
-    
-    .search-results {
+  }
+  
+  .search-results {
     width: 80%;
-    }
-    }
+  }
+}

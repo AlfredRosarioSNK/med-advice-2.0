@@ -47,7 +47,7 @@ export const Login = () => {
         });
 
         setError("");
-        navigate('/Profile'); // Navegar a la pantalla de perfil para que el usuario agregue información adicional.
+        navigate('/Profile'); 
       } catch (error) {
         setError("Error during registration: " + error.message);
       }
@@ -102,7 +102,6 @@ export const Login = () => {
               </label>
             </div>
 )}
-            {/* Campos de correo y contraseña, comunes para ambos casos */}
             <div className={styles.inputGroup}>
               <input
                 type="email"

@@ -71,25 +71,29 @@ const Medicamentos: React.FC = () => {
       <Header />
       <div className="search-container">
         <form className="form" onSubmit={handleSubmit}>
-          <svg className="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M9 2C4.589 2 1 5.589 1 10s3.589 8 8 8c1.846 0 3.543-.633 4.906-1.688l.094-.094 6.281 6.282 1.438-1.438-6.282-6.281.094-.094C16.367 13.543 17 11.846 17 10s-.633-4.543-1.688-5.906l-.094-.094L18.719 1.72l-1.438-1.44-2.593 2.593-.094.094C13.543 2.633 11.846 2 10 2zm0 2c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z" />
-          </svg>
+          <button type="button">
+            <svg width="17" height="16" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="search">
+              <path d="M7.667 12.667A5.333 5.333 0 107.667 2a5.333 5.333 0 000 10.667zM14.334 14l-2.9-2.9" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>
           <input
             className="input"
             type="text"
             value={terminoAbuscar}
             onChange={handleChange}
-            placeholder="Buscar medicamento..."
+            placeholder="Type your text"
+            required
           />
           {terminoAbuscar && (
-            <button type="button" className="reset" onClick={() => setSearchTerm('')}>
-              &times;
+            <button className="reset" type="reset" onClick={() => setSearchTerm('')}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
             </button>
           )}
-          <button type="submit" className="search-btn">Buscar</button>  
+          <button type="submit" className="search-btn">Buscar</button>
         </form>
       </div>
-
       <div className={`search-results ${results.length > 0 ? 'show' : ''}`}>
         {Array.isArray(results) && results.length > 0 ? (
           results.map((result, index) => (
