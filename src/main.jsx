@@ -6,10 +6,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Contactanos from "../pages/Contactanos";
 import Calendario from "../pages/Calendario";
-
+import Profile from '../pages/user/Profile';
+import Header from "./components/Header";
 // Importando componentes y configuración de Firebase
 import appFirebase from "./Credentials"; // Asegúrate de que la ruta sea correcta
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+
 
 // Importando vistas o componentes
 import Root from "./routes/inicio";
@@ -25,18 +28,30 @@ const auth = getAuth(appFirebase);
 
 function App() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (userFirebase) => {
+    const unsubscribe = onAuthStateChanged(auth, async (userFirebase) => {
       if (userFirebase) {
-        setUser(userFirebase);
+        const userProfileRef = doc(getFirestore(appFirebase), "users", userFirebase.uid);
+        const userProfileDoc = await getDoc(userProfileRef);
+        if (userProfileDoc.exists()) {
+          const userData = userProfileDoc.data();
+          setUser({ ...userFirebase, role: userData.role });
+        } else {
+          console.error("Documento de usuario no encontrado.");
+        }
       } else {
         setUser(null);
       }
+      setLoading(false); // Indica que la carga ha terminado
     });
-    return unsubscribe; // Esto es para desuscribirse del observador cuando el componente se desmonta
+    return () => unsubscribe();
   }, []);
 
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
   const router = createBrowserRouter([
     {
       path: "/",
@@ -58,7 +73,7 @@ function App() {
     },
     {
       path: "/Medicamentos",
-      element: <Medicamentos />,
+      element: <Medicamentos />
     },
     {
       path: "/login",
@@ -79,6 +94,10 @@ function App() {
 
     },
     {
+      path: "/Profile",
+      element: user ? <Profile /> : <Login />, // Solo muestra el perfil si hay un usuario autenticado
+    },
+    {
       path: "/Calendario",
       element: <Calendario />,
     },
@@ -87,14 +106,17 @@ function App() {
       path: "/LoginHome",
       element: <LoginHome userMail={user ? user.email : ''} />,
     },
+    
   ].filter(Boolean)); // Filtra las rutas no definidas para usuarios no autenticados
 
   return (
-    <RouterProvider router={router} />
+    <RouterProvider router={router}>
+      <Header user={user} />
+    </RouterProvider>
   );
 }
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
 root.render(
   <React.StrictMode>
     <App />

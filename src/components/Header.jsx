@@ -1,8 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getAuth, signOut } from "firebase/auth";
 import logo from '../logo/logobig.png';
 
-const Header = () => {
+import { FaUserCircle } from "react-icons/fa";
+
+const Header = ({ user }) => {
+    const auth = getAuth();
+
+
+    const refresh = () => {
+        window.location.reload(false); // Fuerza un refresco de la página
+    };
+
+    const navigate = useNavigate(); // Inicializa useNavigate en tu componente.
+
+    const handleSignOut = async () => {
+        try {
+            await signOut(auth);
+              console.log("Usuario deslogueado");
+        } catch (error) {
+            console.error("Error al cerrar sesión: ", error);
+        }
+    };
+    
     return (
         <>
             <header className="header">
@@ -41,20 +62,32 @@ const Header = () => {
                             <Link to="/Contactanos" className="nav-link">CONTACTANOS</Link>
                         </nav>
                         <div className="header-contact">
-                            <span className="Register-button">Register </span>
-                            <Link to="/Login" className="login-button">LOGIN</Link>
-                        </div>
+                {user ? (
+                    <>
+                        <Link to="/Profile">
+                            <FaUserCircle size={30} /> {/* Icono de perfil */}
+                        </Link>
+                        <button onClick={handleSignOut} className="login-button">Cerrar sesión</button>
+                    </>
+                ) : (
+                    <>
+                        <Link to="/register" className="Register-button">Registrarse</Link>
+                        <Link to="/login" className="login-button">Iniciar sesión</Link>
+                    </>
+                )}
+            </div>
                     </div>
                 </div>
-
-                {/* Slider */}
-                <div className="slider-container">
-                    {/* Aquí iría tu componente de slider. */}
-                    {/* <SliderComponent /> */}
+                <div className="header-contact">
+                    <button onClick={handleSignOut} className="login-button">Cerrar sesión</button>
+                    {user && (
+                        <Link to="/Profile">
+                            <FaUserCircle size={30} /> {/* Icono de perfil */}
+                        </Link>
+                    )}
                 </div>
             </header>
         </>
     );
 };
-
 export default Header;
