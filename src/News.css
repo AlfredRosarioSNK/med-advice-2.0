@@ -1,10 +1,54 @@
-.BannerImageContainer{
+.BannerImageContainer {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 20vh; 
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+  }
+  
+  .BannerImageContainer img {
+    border-radius: 50px;
+  }
+  
+  .news-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 1200px;
+  }
+  
+  .news-item {
+    display: flex;
+    flex-direction: column; /* Cambia de nuevo a column para apilar verticalmente */
+    align-items: center; /* Centra los ítems horizontalmente */
+    background-color: #2a7fba;
+    color: white;
+    width: calc(33.333% - 20px); /* Ajusta el ancho para 3 por fila, restando el margen */
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  .news-item-image {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover;
+    margin-bottom: 20px; /* Agrega un margen inferior para separar de texto */
+  }
+
+.news-item-content {
+  width: 100%; /* Permite que el contenido ocupe todo el ancho disponible */
+}
+  
+.news-item-content h3,
+.news-item-content p {
+  margin: 10px 0;
+  text-align: left; /* Alinea el texto a la izquierda */
+  width: 100%; /* Hace que el texto utilice el ancho completo del contenedor */
 }
 
-.BannerImageContainer img{
-    border-radius: 50px;
+header {
+  position: relative; /* o `fixed` si quieres que esté siempre visible en la parte superior */
+  z-index: 10; /* Asegura que el header esté sobre otros elementos */
+  height: 100px; /* Ajusta según el tamaño de tu header */
+  width: 100%; /* Asegura que ocupe el ancho completo */
 }
