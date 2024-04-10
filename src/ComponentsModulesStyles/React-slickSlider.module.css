@@ -1,0 +1,97 @@
+.sliderContainer {
+  padding: 20px;
+  background-color: #f9f9f9; /* Fondo del slider */
+  position: relative; /* Necesario para z-index */
+  z-index: 2; /* Asegura que el slider esté sobre el banner */
+  margin-top: 4%; /* Ajusta según necesites para sobreponer al banner */
+  max-width: 60%;
+  margin-left: 20%;
+  border-radius: 50px;
+}
+  
+  .card {
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  } 
+
+.center {
+    margin: auto;
+  }
+  
+
+  h3 {
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .slick-arrow {
+    z-index: 1; 
+}
+
+.news-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  .news-image {
+    width: 100%;
+    max-width: 100%; 
+    min-width: 100px; 
+    height: auto;
+    max-height: 300px; 
+    min-height: 100px; 
+    object-fit: cover; 
+  }
+  
+  
+  .news-content {
+    padding: 15px;
+  }
+  
+  .news-title {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .news-date {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .news-description {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+
+  .BannerImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh; /* Altura del banner */
+  margin-top: 100px; /* Asegura espacio suficiente en la parte superior */
+  position: relative; /* Permite el ajuste de z-index */
+  z-index: 1; /* Banner debajo del slider */
+}
+  
+  .BannerImageContainer img {
+    max-height: 100%; /* Asegura que la imagen no sea más alta que el contenedor */
+    max-width: 100%; /* Asegura que la imagen no sea más ancha que el contenedor */
+  }
+  
+  .react-slick--container {
+    padding: 20px;
+    background-color: #f9f9f9; /* Fondo del slider */
+    position: relative; /* Necesario para z-index */
+    z-index: 2; /* Asegura que el slider esté sobre el banner */
+    margin-top: -10%; /* Ajusta según necesites para sobreponer al banner */
+  }
