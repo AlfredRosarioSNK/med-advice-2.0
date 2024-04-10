@@ -1,0 +1,109 @@
+.profile-page-container {
+    display: flex;
+    justify-content: center;
+    padding: 10%;
+    
+    background: #e9ebee; 
+  }
+  
+  .profile-container {
+
+    width: 100%;
+    max-width: 700px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: visible; 
+  }
+  
+
+  .profile-header {
+    background-color: #f5f6f7;
+    text-align: center;
+    padding: 40px 20px 20px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    padding-top: 100px;
+  }
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    object-fit: cover;
+    position: absolute;
+    top: -75px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+  }
+  
+  .change-photo-btn {
+    display: block;
+    margin-top: -35px; 
+    padding: 5px 15px;
+    border: none;
+    background-color: #4267b2;
+    color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  
+  .profile-details {
+    padding: 40px;
+  }
+  
+  .profile-form {
+    display: grid;
+    grid-gap: 20px;
+  }
+  
+  
+  .profile-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .profile-form input[type="text"],
+  .profile-form input[type="number"],
+  .profile-form input[type="email"],
+  .profile-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .profile-form button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .profile-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .profile-form input:invalid {
+    border-color: #dc3545;
+  }
+  
+  .profile-form .error-message {
+    color: #dc3545;
+    font-size: 0.85em;
+  }
+  
+
+  @media (max-width: 768px) {
+    .profile-container {
+      padding: 10px;
+    }
+  }
+  .save-changes-btn {
+    background-color: #4267b2; 
+    color: #fff;
+  }
+  
