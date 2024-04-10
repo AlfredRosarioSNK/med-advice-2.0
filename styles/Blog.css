@@ -1,0 +1,21 @@
+.btn {
+    width: 40%;
+    height: 40px;
+    border: 3px solid #315cfd;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white;
+    font-size: 15px;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn:hover {
+    background: #315cfd;
+    color: white;
+    font-size: 20px;
+  }

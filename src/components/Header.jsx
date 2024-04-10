@@ -4,7 +4,7 @@ import { getAuth, signOut } from "firebase/auth";
 import logo from '../logo/logobig.png';
 import { FaUserCircle } from "react-icons/fa";
 import { useAuth } from '../AuthContext';
-
+import Blog from "../../pages/Blog";
 const Header = () => {
     const { currentUser } = useAuth();
 
@@ -38,7 +38,7 @@ const Header = () => {
             <div className="main-nav">
                 <div className="container d-flex justify-content-between align-items-center">
                     <div className="logo">
-                        <Link to="/Portal"><img src={logo} alt="SaludConecta" /></Link>
+                        <Link to="/"><img src={logo} alt="SaludConecta" /></Link>
                     </div>
                     <nav className="nav">
                         <Link to="/Portal" className="nav-link">SERVICIOS</Link>
@@ -47,11 +47,11 @@ const Header = () => {
                         <div className="nav-item dropdown">
                             <span className="nav-link">CONSULTAR</span>
                             <div className="dropdown-menu">
-                                <Link to="/consultas-medicas" className="dropdown-item">Medicos</Link>
+                                <Link to="/ConsultasMedicas" className="dropdown-item">Medicos</Link>
                                 <Link to="/Medicamentos" className="dropdown-item">Medicamentos</Link>
                             </div>
                         </div>
-                        <Link to="/Portal" className="nav-link">BLOG</Link>
+                        <Link to="/Blog" className="nav-link">BLOG</Link>
                         <Link to="/Contactanos" className="nav-link">CONTACTANOS</Link>
                     </nav>
                     <div className="header-contact">

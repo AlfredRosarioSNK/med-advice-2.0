@@ -8,11 +8,11 @@ import Contactanos from "../pages/Contactanos";
 import Calendario from "../pages/Calendario";
 import Profile from '../pages/user/Profile';
 import Header from "./components/Header";
-
-import appFirebase from "./Credentials"; 
+import Error404 from "./components/Error";
+import { appFirebase } from "./Credentials"; 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
-
+import Blog from "../pages/Blog";
 import { AuthProvider } from "./AuthContext";
 
 import Root from "./routes/inicio";
@@ -23,7 +23,7 @@ import Medicamentos from "../pages/medicamentos";
 import Login from "./Login"; 
 import LoginHome from "../pages/LoginHome";
 import News from '../pages/News'; 
-
+import ConsultasMedicas from "../pages/consultas-medicas";
 import LoadingAnimation from "./components/LoadingAnimation"; 
 const auth = getAuth(appFirebase);
 
@@ -60,9 +60,9 @@ function App() {
     {
       path: "/",
       element: <Root />,
-      errorElement: <div>404 Not Found</div>,
+      errorElement: <Error404/>,
     },
-    // Las siguientes rutas son accesibles sin autenticación
+   
     {
       path: "/Doctores",
       element: <Doctores />,
@@ -105,13 +105,21 @@ function App() {
       path: "/Calendario",
       element: <Calendario />,
     },
+    {
+      path: "/Blog",
+      element: <Blog />,
+    },
+    {   
+      path: "/ConsultasMedicas",
+      element: user ? <    ConsultasMedicas /> : <Login />, 
+    },
 
     {
       path: "/LoginHome",
       element: <LoginHome userMail={user ? user.email : ''} />,
     },
     
-  ].filter(Boolean)); // Filtra las rutas no definidas para usuarios no autenticados
+  ].filter(Boolean)); // Filtra las rutas no definidas para usuarios no autentificados
 
   return (
     <RouterProvider router={router}>

@@ -1,5 +1,5 @@
 import { getFirestore, doc, setDoc } from "firebase/firestore";
-import appFirebase from "./Credentials"; // Asegúrate de que la ruta sea correcta
+import { appFirebase } from "./Credentials"; // Asegúrate de que la ruta sea correcta
 import { getAuth } from "firebase/auth";
 
 const auth = getAuth(appFirebase);

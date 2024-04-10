@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Login.module.css';
 
-import appFirebase from "../src/Credentials";
+import { appFirebase } from "../src/Credentials";
 import {
   getAuth,
   createUserWithEmailAndPassword,
