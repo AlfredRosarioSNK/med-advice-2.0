@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import healthKid from '../images/health-kid.jpg';
 import mediBg from '../images/medibg.jpg';
 import mediBg2 from '../images/medibg2.jpg';
@@ -12,17 +12,31 @@ const Slider = () => {
         setCurrentSlide((prev) => (prev + 1) % slides.length);
     };
 
+    
     const prevSlide = () => {
         setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length); 
     };
 
+   
+    useEffect(() => {
+        const interval = setInterval(() => {
+            nextSlide(); 
+        }, 3000); 
+
+        return () => clearInterval(interval); 
+    }, []); 
+
     return (
+        <>
         <div className="slider-container">
             <button onClick={prevSlide}>Prev</button>
             <img src={slides[currentSlide]} alt={`Slide ${currentSlide}`} />
             <button onClick={nextSlide}>Next</button>
         </div>
-    );
+
+
+</>
+);
 };
 
 export default Slider;

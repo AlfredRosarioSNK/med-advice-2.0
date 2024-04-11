@@ -27,6 +27,16 @@
   --breakpoint-xl: 1200px;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --footer-background: #2c3e50; 
+  --footer-text-color: #fff; 
+  --footer-link-color: #fff; 
+  --footer-link-hover-color: #a8b2b9; 
+  --footer-border-color: rgba(255, 255, 255, 0.2); 
+  --footer-bottom-background: #252f3d; 
+  --social-icon-color: #9dadbb; 
+  --social-icon-hover-color: #ccd6dd;
+
 }
 .contactanos-container {
     display: flex;
@@ -34,23 +44,24 @@
     height: 100vh;
   }
   
-
-  hr{  
-    background-color: white;
-  }
   
   .map-container {
     width: 50%;
     height: 60vh;
     margin-bottom: 20px;
   }
-  
   .footer {
-    background-color: #CAF0F8;
-    padding: 20px 0;
+    background-color: var(--footer-background);
+    color: var(--footer-text-color);
+    padding: 40px 0; 
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
+    font-family: var(--font-family-sans-serif);
+  }
+  
+  hr {
+    background-color: var(--footer-border-color);
+    height: 1px; 
+    border: none; 
   }
   
   .footer-content {
@@ -59,6 +70,7 @@
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px; 
   }
   
   .contact-info, .social-links {
@@ -69,29 +81,38 @@
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .social-links ul li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  
-  .social-links ul li:last-child {
-    margin-right: 0;
+    display: flex; 
+    justify-content: center; 
   }
   
   .social-links ul li a {
-    color: #333;
-    text-decoration: none;
+    color: var(--social-icon-color);
+    margin: 0 10px; 
+    transition: color 0.3s ease; 
   }
   
   .social-links ul li a:hover {
-    text-decoration: underline;
+    color: var(--social-icon-hover-color);
+  }
+  
+  .footer-bottom {
+    background-color: var(--footer-bottom-background);
+    padding: 20px 0; 
+    border-top: 1px solid var(--footer-border-color); 
   }
   
   .copyright {
-    margin-top: 20px;
+    margin-top: 0;
     font-size: 14px;
-    color: #000000;
+    color: var(--footer-text-color);
   }
   
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column; 
+    }
+    
+    .contact-info, .social-links {
+      margin-bottom: 20px; 
+    }
+  }
